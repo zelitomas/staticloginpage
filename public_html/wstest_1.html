@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Testing websockets</title>
+</head>
+<body>
+  <div>
+    <input type="submit" value="Send!" onclick="start()" />
+  </div>
+  <div id="messages"></div>
+  <script type="text/javascript">
+    var webSocket = 
+      new WebSocket('ws://ws-hotpwebsocket.1d35.starter-us-east-1.openshiftapps.com/HOTPsocket/websocket/zelitomas@gmail.com/sender');
+
+    webSocket.onerror = function(event) {
+      onError(event)
+    };
+
+    webSocket.onopen = function(event) {
+      onOpen(event)
+    };
+
+    webSocket.onmessage = function(event) {
+      onMessage(event)
+    };
+
+    function onMessage(event) {
+      document.getElementById('messages').innerHTML 
+        += '<br />' + event.data;
+    }
+
+    function onOpen(event) {
+      document.getElementById('messages').innerHTML 
+        = 'Connection established';
+    }
+
+    function onError(event) {
+      alert(event.data);
+    }
+
+    function start() {
+      webSocket.send('otp=W0o0o0o0o0o0');
+      document.getElementById('messages').innerHTML 
+        += '<br />' + "Data sent: W0o0o0o0o0o0";
+      return false;
+    }
+  </script>
+</body>
+</html>

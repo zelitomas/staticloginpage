@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CROCS | Přihlášení</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="js/login.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div id="singlebox">
+            <img src="img/logo-header.png" class="headerimage"> 
+            <h1>Přihlášení</h1>
+            
+            <div id="login" class="smallbox">
+                <div class="wrongcredentialsalert">Neplatné uživatelské jméno nebo heslo.</div>
+                Přihlaste se svým CROCS účtem
+                <form id="loginPassword">
+                    <input type="email" placeholder="E-mail" name="login" required title="Emailová edresa">
+                    <input type="password" minlength="8" placeholder="Heslo" name="password" required >
+                    <input type="submit" value="Odeslat">
+                </form>
+            </div>
+            <div id="hotp" class="smallbox">
+                Zadejte 2FA.
+                <div class="emoji"></div>
+                <form id="HOTPcode">
+                    <input type="text" placeholder="Jednorázový kód" pattern="[0-9]{1,9}" name="code" required>
+                    <input type="submit" value="Odeslat">
+                </form>
+            </div>
+            <div id="mobile" class="smallbox">
+                <div class="wsauth">
+                    Vidíte tyto obrázky na svém monitoru?
+                    <div class="emoji"></div>
+                    <button id="authok">Ano, schválit přihlášení</button>
+                    <button class="secondary switchtoofflineauth">Ne, něco je špatně</button>
+                </div>
+                <div class="offlineauth">
+                    <button class="loginhere">Chci se přihlásit na tomto zařízení</button>
+                    <button class="secondary showcode">Chci zobrazit kód pro přihlášení jinde</button>
+                </div>
+                <div class="code">
+                    Váš kód pro přihlášení je <span id="code">######</span>.
+                </div>
+                
+            </div>
+            
+        </div>
+    </body>
+</html>

@@ -1,0 +1,120 @@
+/* 
+    Created on : 10.7.2017, 11:17:20
+    Author     : zelitomas
+*/
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,latin-ext);
+
+body{
+    text-align: center;
+    margin: 0;
+    background-color: #F6F6F6;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#singlebox {
+    background-color: snow;
+    margin-top: 20px;
+    display: inline-block;
+    border: #c7c7c7 1px solid;
+    border-radius: 8px;
+    padding: 20px;
+    width: calc(100% - 42px);
+    padding-top: 45px;
+    padding-bottom: 45px;
+    max-width: 500px;
+    box-shadow: 0px 0px 25px 0px rgba(115,115,115,0.71);
+    transition: box-shadow 1s;
+}
+
+#singlebox.wrongpassword, #singlebox.wrongcode{
+    box-shadow: 0px 0px 25px 0px rgba(155,60,65,0.71);
+}
+
+.wrongcredentialsalert{
+    background-color: #9B3C3C;
+    color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 6px;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    height: 1.5em;
+}
+
+h1{
+    margin-top: 5px;
+    font-weight: normal;
+    color: #535353;
+    font-size: 2em;
+}
+
+form{
+    margin-top: 20px;
+}
+
+input, button {
+    width: 80%;
+    font-size: 20px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: gray 1px solid;
+    border-radius: 3px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+input[type=text], input[type=password]{
+    
+}
+
+input[type=submit], button{
+    color: snow;
+    border-color: #4e87d9;
+    background-color: #5084cf;
+}
+
+img{
+    max-width: 100%;
+}
+
+.headerimage{
+    padding-bottom: 20px;
+}
+
+.smallbox{
+    display: none;
+}
+
+.smallbox.shown{
+    display: block;
+}
+
+div.emoji{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.emoji img{
+    display: inline-block;
+    width: 30%;
+}
+
+.code{
+    display: none;
+}
+
+#mobile .wsauth{
+    display: none;
+}
+
+#mobile.online .offlineauth, #mobile.codeShown .offlineauth{
+    display: none;
+}
+
+#mobile.online .wsauth{
+    display: block;
+}
+
+#mobile.codeShown .code{
+    display: block;
+}
