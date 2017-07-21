@@ -14,7 +14,7 @@
             <h1>Přihlášení</h1>
             
             <div id="login" class="smallbox">
-                <div class="wrongcredentialsalert">Neplatné uživatelské jméno nebo heslo.</div>
+                <div class="wrongcredentialsalert wrongpasswordalert">Neplatné uživatelské jméno nebo heslo.</div>
                 Přihlaste se svým CROCS účtem
                 <form id="loginPassword">
                     <input type="email" placeholder="E-mail" name="login" required title="Emailová edresa">
@@ -23,6 +23,7 @@
                 </form>
             </div>
             <div id="hotp" class="smallbox">
+                <div class="wrongcredentialsalert wrongcodealert">Neplatný jednorázový kód.</div>
                 Zadejte 2FA.
                 <div class="emoji"></div>
                 <form id="HOTPcode">

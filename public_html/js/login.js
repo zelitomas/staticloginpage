@@ -101,18 +101,34 @@ function completePOSTData(){
         data.password = password;
     }
     
-    if(code !== undefined){
+    if(hotp !== undefined){
         data.code = hotp;
     }
     
     return data;
 }
 
+function setWrongPasswordAlert(state){
+    if(state){
+        $("#singlebox").addClass("wrongpassword");
+    } else {
+        $("#singlebox").removeClass("wrongpassword")
+    }
+}
+
+function setWrongCodeAlert(state){
+    if(state){
+        $("#singlebox").addClass("wrongcode");
+    } else {
+        $("#singlebox").removeClass("wrongcode")
+    }
+}
+
 function tryLogin(){
     var data = completePOSTData();
     console.log(data);
     forceLoginOnThisDevice = true;
-    $.ajax("http://hotp.zelitomas.cf/new/login.php", {
+    $.ajax("https://hotp.zelitomas.cf/new/login.php", {
             dataType: 'json',
             method: 'POST',
             data: data
@@ -121,17 +137,22 @@ function tryLogin(){
             console.log(result);
             
             if(result.status === "LOGGED_IN"){
+                setWrongPasswordAlert(false);
+                setWrongCodeAlert(false);
                 alert("Přihlašovací údaje ověřeny //TODO");
                 return;
             }
             
             if(result.status === "OTP_REQUIRED") {
+                setWrongPasswordAlert(false);
                 logintoken = result.logintoken;
             } else if(result.status === "WRONG_LOGIN"){
+                setWrongPasswordAlert(true);
                 username = undefined;
                 password = undefined;
                 logintoken = undefined;
             } else if(result.status === "WRONG_OTP"){
+                setWrongCodeAlert(true);
                 hotp = undefined;
             }
             
@@ -175,7 +196,7 @@ $(document).ready(function(){
     });
     
     $("#HOTPcode").submit(function(){
-        code = $("#HOTPcode input[name=code]").val();
+        hotp = $("#HOTPcode input[name=code]").val();
         tryLogin();
         return false;
     });

@@ -40,6 +40,11 @@ body{
     padding: 0.5em;
     margin-bottom: 1em;
     height: 1.5em;
+    display: none;
+}
+
+.wrongpassword .wrongpasswordalert, .wrongcode .wrongcodealert{
+    display: block;
 }
 
 h1{
