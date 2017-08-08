@@ -4,6 +4,9 @@ var hotp = undefined;
 var logintoken = undefined;
 var forceLoginOnThisDevice = false;
 
+/* CONFIG */
+var websocketServer = 'wss://hotp.herokuapp.com/test/websocket/';
+
 var outgoingWebsocket;
 
 function showAppropriateForm(){
@@ -74,7 +77,7 @@ function initiateWebSocket(mode, fonmessage){
         return;
     }
     var webSocket = 
-      new WebSocket('ws://ws-hotpwebsocket.1d35.starter-us-east-1.openshiftapps.com/HOTPsocket/websocket/' + username + '/' + mode);
+      new WebSocket(websocketServer + username + '/' + mode);
 
     webSocket.onerror = function(event) {
       console.log("Websocket error!");
