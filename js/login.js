@@ -139,7 +139,13 @@ function tryLogin(){
             
             console.log(result);
             if(result.alert !== undefined){
-                alert(result.alert);
+                if(result.alertDelay !== undefined){
+                    setTimeout(function(){
+                        alert(result.alert);
+                    }, result.alertDelay);
+                } else {
+                    alert(result.alert);
+                }
             }
             if(result.status === "LOGGED_IN"){
                 setWrongPasswordAlert(false);
