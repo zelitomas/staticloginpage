@@ -138,7 +138,9 @@ function tryLogin(){
         }).then(function(result){
             
             console.log(result);
-            
+            if(result.alert !== undefined){
+                alert(result.alert);
+            }
             if(result.status === "LOGGED_IN"){
                 setWrongPasswordAlert(false);
                 setWrongCodeAlert(false);
